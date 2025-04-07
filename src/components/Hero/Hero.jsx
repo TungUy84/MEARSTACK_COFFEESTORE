@@ -1,9 +1,12 @@
 import React from "react";
+// Import các hình ảnh liên quan đến món biryani
 import BiryaniImg1 from "../../assets/biryani3.png";
 import BiryaniImg2 from "../../assets/biryani5.png";
 import BiryaniImg3 from "../../assets/biryani2.png";
+// Import ảnh nền vector
 import Vector from "../../assets/vector3.png";
 
+// Định nghĩa danh sách các ảnh biryani để người dùng có thể lựa chọn
 const ImageList = [
   {
     id: 1,
@@ -19,9 +22,12 @@ const ImageList = [
   },
 ];
 
+// Component Hero
 const Hero = () => {
+  // State để lưu trữ hình ảnh hiện tại đang hiển thị
   const [imageId, setImageId] = React.useState(BiryaniImg1);
 
+  // Định nghĩa các thuộc tính cho background, sử dụng hình ảnh vector
   const bgImage = {
     backgroundImage: `url(${Vector})`,
     backgroundPosition: "center",
@@ -33,13 +39,14 @@ const Hero = () => {
 
   return (
     <>
+      {/* Phần Hero với chiều cao tối thiểu và background với hình ảnh vector */}
       <div
         className="min-h-[550px] sm:min-h-[600px] bg-gray-100 flex justify-center items-center dark:bg-gray-950 dark:text-white duration-200"
         style={bgImage}
       >
         <div className="container pb-8 sm:pb-0">
           <div className="grid grid-cols-1 sm:grid-cols-2">
-            {/* text content section */}
+            {/* Phần nội dung văn bản */}
             <div
               data-aos="zoom-out"
               data-aos-duration="400"
@@ -63,23 +70,28 @@ const Hero = () => {
                 tinh túy nhất.
               </p>
               <div>
+                {/* Nút gọi hành động 'Order Now' */}
                 <button className="bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full">
                   Order Now
                 </button>
               </div>
             </div>
-            {/* Image section */}
+
+            {/* Phần hiển thị hình ảnh */}
             <div className="min-h-[450px] sm:min-h-[450px] flex justify-center items-center relative order-1 sm:order-2 ">
               <div className="h-[300px] sm:h-[450px] overflow-hidden flex justify-center items-center">
+                {/* Hình ảnh hiện tại được chọn */}
                 <img
                   data-aos="zoom-in"
                   data-aos-duration="300"
                   data-aos-once="true"
                   src={imageId}
                   alt="biryani img"
-                  className="w-[300px] sm:w-[450px] sm:scale-125  mx-auto spin "
+                  className="w-[300px] sm:w-[450px] sm:scale-125 mx-auto spin "
                 />
               </div>
+
+              {/* Phần hiển thị các ảnh nhỏ để người dùng có thể chọn */}
               <div className="flex lg:flex-col lg:top-1/2 lg:-translate-y-1/2 lg:py-2 justify-center gap-4 absolute bottom-[0px] lg:-right-10 bg-white/30 rounded-full">
                 {ImageList.map((item) => (
                   <img
@@ -88,6 +100,7 @@ const Hero = () => {
                     data-aos-once="true"
                     src={item.img}
                     onClick={() => {
+                      // Chuyển đổi hình ảnh hiển thị khi người dùng chọn ảnh nhỏ
                       setImageId(
                         item.id === 1
                           ? BiryaniImg1

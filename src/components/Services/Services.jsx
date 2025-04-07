@@ -9,21 +9,21 @@ const ServicesData = [
     img: Img,
     name: "Ice White",
     description:
-      "Price: 50.000Đ",
+      "Giá: 50.000Đ",
   },
   {
     id: 2,
     img: Img2,
     name: "Matcha",
     description:
-      "Price: 60.000Đ",
+      "Giá: 60.000Đ",
   },
   {
     id: 3,
     img: Img3,
     name: "Eskosu Wolsom ",
     description:
-      "Price: 45.000Đ",
+      "Giá: 45.000Đ",
   },
 ];
 const Services = () => {
@@ -34,9 +34,9 @@ const Services = () => {
         <div className="container">
           <div className="text-center mb-20 max-w-[400px] mx-auto">
             <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary ">
-              Our Services
+            Dịch vụ của chúng tôi
             </p>
-            <h1 className="text-3xl font-bold">Services</h1>
+            <h1 className="text-3xl font-bold">Dịch Vụ</h1>
             <p className="text-xs text-gray-400">
               Những món Bestseller của quán và được đánh giá cao nhất.
             </p>

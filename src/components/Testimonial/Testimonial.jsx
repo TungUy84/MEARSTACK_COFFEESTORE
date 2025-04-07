@@ -1,12 +1,13 @@
 import React from "react";
-import Slider from "react-slick";
+import Slider from "react-slick";// Thư viện tạo slider/carousel hiệu ứng trượt ngang
 
+// Dữ liệu giả định về các nhận xét của khách hàng
 const testimonialData = [
   {
-    id: 1,
+    id: 1, // 🔴 Lưu ý: Các id đều là 1 => nên sửa thành id khác nhau để tránh lỗi React key trùng nhau
     name: "Hữu Linh",
     text: "Cà phê đậm vị, thơm ngon, đúng gu mình. Đóng gói chắc chắn, không bị đổ. Giao hàng nhanh, nước vẫn còn ấm. Rất hài lòng!",
-    img: "https://picsum.photos/101/101",
+    img: "https://picsum.photos/101/101",// Ảnh đại diện giả ngẫu nhiên
   },
   {
     id: 1,
@@ -30,17 +31,17 @@ const testimonialData = [
 
 const Testimonial = () => {
   var settings = {
-    dots: true,
-    arrows: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
-    pauseOnHover: true,
-    pauseOnFocus: true,
+    dots: true,             // Hiện các chấm tròn điều hướng bên dưới slider
+    arrows: false,          // Ẩn mũi tên chuyển slide trái/phải
+    infinite: true,         // Cho phép lặp lại vô hạn
+    speed: 500,             // Thời gian chuyển slide (ms)
+    slidesToShow: 1,        // Hiển thị 1 nhận xét mỗi lần
+    slidesToScroll: 1,      // Cuộn từng nhận xét một
+    autoplay: true,         // Tự động chuyển slide
+    autoplaySpeed: 2000,    // Thời gian mỗi slide: 2s
+    cssEase: "linear",      // Kiểu chuyển động mượt
+    pauseOnHover: true,     // Dừng tự động khi hover
+    pauseOnFocus: true,     // Dừng khi người dùng tương tác
   };
   return (
     <>
@@ -48,11 +49,11 @@ const Testimonial = () => {
         <div className="container">
           <div className="text-center mb-20 max-w-[400px] mx-auto">
             <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-              What our customers say
+            Khách hàng của chúng tôi nói gì
             </p>
-            <h1 className="text-3xl font-bold">Testimonial</h1>
+            <h1 className="text-3xl font-bold">Chứng Thực</h1>
             <p className="text-xs text-gray-400">
-            "I'm really impressed with the quality of the drinks and the service. The coffee is delicious, carefully packaged, and delivered quickly. I’ll definitely order again many times!"
+            "Tôi thực sự ấn tượng với chất lượng đồ uống và dịch vụ. Cà phê ngon, đóng gói cẩn thận, giao nhanh chóng. Tôi chắc chắn sẽ gọi lại nhiều lần!"
             </p>
           </div>
           <div
