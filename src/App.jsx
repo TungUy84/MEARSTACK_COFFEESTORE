@@ -27,6 +27,7 @@ const App = () => {
     AOS.refresh(); // Cập nhật lại AOS để đảm bảo mọi thành phần được áp dụng đúng hiệu ứng
   }, []); // Mảng rỗng nghĩa là effect chỉ chạy một lần sau khi component được mount
 
+  
   // Trả về giao diện chính của ứng dụng
   return <>
   <Routes>
@@ -48,7 +49,7 @@ const App = () => {
         element={<Layout><Page /></Layout>}/>)
     })}
   </Routes>
-
+    
   </>;
 };
 
