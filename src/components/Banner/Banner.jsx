@@ -7,7 +7,8 @@ import Vector from "../../assets/vector3.png";
 import { GrSecure } from "react-icons/gr";
 import { IoFastFood } from "react-icons/io5";
 import { GiFoodTruck } from "react-icons/gi";
-
+import { Link } from "react-router-dom";
+import { FaCartShopping } from "react-icons/fa6";
 // Component Banner hiển thị banner với hình ảnh, thông tin giờ mở cửa và các biểu tượng.
 const Banner = () => {
   // Định nghĩa đối tượng style cho hình nền của banner.
@@ -44,9 +45,7 @@ const Banner = () => {
               </div>
               {/* Phần nội dung văn bản */}
               <div className="flex flex-col justify-center gap-6 sm:pt-0">
-                <h1 className="text-3xl sm:text-4xl font-bold">
-                  Giờ Mở Cửa
-                </h1>
+                <h1 className="text-3xl sm:text-4xl font-bold">Giờ Mở Cửa</h1>
                 <p className="text-sm text-gray-500 tracking-wide leading-5">
                   {/* Thông tin giờ mở cửa */}
                   <b>Thứ 2 đến thứ 6 hàng tuần</b>
@@ -78,9 +77,13 @@ const Banner = () => {
                 </div>
                 {/* Nút đặt hàng với kiểu gradient */}
                 <div>
-                  <button className="bg-gradient-to-r from-primary to-secondary text-white py-2 px-4 rounded-full shadow-xl hover:shadow-md">
-                    Order Now
-                  </button>
+                  <Link
+                    to="/product"
+                    className="w-[180px] flex items-center justify-center text-center px-4 py-2 rounded-3xl border transition-all hover:border-white-50 hover:bg-white hover:text-black">
+                    <span className="text-md font-bold mr-1">Xem sản phẩm</span>
+                    {/* Biểu tượng giỏ hàng */}
+                    <FaCartShopping className="text-md ml-1 drop-shadow-sm cursor-pointer" />
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 // Nhập các thư viện và component cần thiết
-import React from "react"; // Thư viện React
+import React, { Fragment } from "react"; // Thư viện React
 import Hero from "./components/Hero/Hero"; // Component Hero (phần tiêu đề chính của trang)
 import Navbar from "./components/Navbar/Navbar"; // Component thanh điều hướng (menu trên đầu)
 import Services from "./components/Services/Services.jsx"; // Component dịch vụ
@@ -10,6 +10,9 @@ import Testimonial from "./components/Testimonial/Testimonial.jsx"; // Component
 import Footer from "./components/Footer/Footer.jsx"; // Component chân trang (footer)
 import AOS from "aos"; // Thư viện animation on scroll (AOS) để tạo hiệu ứng khi cuộn trang
 import "aos/dist/aos.css"; // Nhập file CSS của AOS để hiệu ứng hiển thị đúng
+import { Route, Routes } from "react-router-dom";
+import { privateRoute } from "./routes/index.jsx";
+import DefaultLayout from "./layouts/DefaultLayout.jsx";
 
 // Khai báo component App chính
 const App = () => {
@@ -25,34 +28,31 @@ const App = () => {
   }, []); // Mảng rỗng nghĩa là effect chỉ chạy một lần sau khi component được mount
 
   // Trả về giao diện chính của ứng dụng
-  return (
-    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-      {/* Component thanh điều hướng */}
-      <Navbar />
+  return <>
+  <Routes>
+    {privateRoute.map((route, index) => {
+      const Page = route.element;
 
-      {/* Component phần tiêu đề chính */}
-      <Hero />
+      let Layout = DefaultLayout;
 
-      {/* Component giới thiệu dịch vụ */}
-      <Services />
+      if (route.layout) {
+        Layout = route.layout;
+      } else if (route.layout === null) {
+        Layout = Fragment;
+      }
+      
+      return (
+      <Route 
+        key={index} 
+        path={route.path} 
+        element={<Layout><Page /></Layout>}/>)
+    })}
+  </Routes>
 
-      {/* Banner đầu tiên */}
-      <Banner />
-
-      {/* Banner phụ */}
-      <CoverBanner />
-
-      {/* Liên kết đến App Store */}
-      <AppStore />
-
-      {/* Phản hồi khách hàng */}
-      <Testimonial />
-
-      {/* Chân trang */}
-      <Footer />
-    </div>
-  );
+  </>;
 };
 
 // Xuất component App để sử dụng ở nơi khác (thường là index.js)
 export default App;
+
+
