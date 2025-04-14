@@ -5,7 +5,8 @@ import BiryaniImg2 from "../../assets/biryani5.png";
 import BiryaniImg3 from "../../assets/biryani2.png";
 // Import ảnh nền vector
 import Vector from "../../assets/vector3.png";
-
+import { Link } from "react-router-dom";
+import { FaCartShopping } from "react-icons/fa6";
 // Định nghĩa danh sách các ảnh biryani để người dùng có thể lựa chọn
 const ImageList = [
   {
@@ -41,7 +42,7 @@ const Hero = () => {
     <>
       {/* Phần Hero với chiều cao tối thiểu và background với hình ảnh vector */}
       <div
-        className="min-h-[550px] sm:min-h-[600px] bg-gray-100 flex justify-center items-center dark:bg-gray-950 dark:text-white duration-200"
+        className="min-h-[550px] sm:min-h-[600px] bg-gray-100 flex justify-center items-center dark:bg-gray-950 dark:text-black duration-200"
         style={bgImage}
       >
         <div className="container pb-8 sm:pb-0">
@@ -69,12 +70,16 @@ const Hero = () => {
                 ép tuyệt hảo,được chọn lọc từ những nguyên liệu đặc biệt và
                 tinh túy nhất.
               </p>
+              {/* Nút đặt hàng với kiểu gradient */}
               <div>
-                {/* Nút gọi hành động 'Order Now' */}
-                <button className="bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full">
-                  Order Now
-                </button>
-              </div>
+                  <Link
+                    to="/product"
+                    className="w-[180px] flex items-center justify-center text-center px-4 py-2 rounded-3xl border transition-all transform bg-gradient-to-r from-primary to-secondary text-white hover:border-white hover:bg-white hover:text-white hover:scale-105 duration-200">
+                    <span className="text-md font-bold mr-1">Xem sản phẩm</span>
+                    {/* Biểu tượng giỏ hàng */}
+                    <FaCartShopping className="text-md ml-1 drop-shadow-sm cursor-pointer" />
+                  </Link>
+                </div>
             </div>
 
             {/* Phần hiển thị hình ảnh */}

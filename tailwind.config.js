@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
@@ -22,6 +24,18 @@ export default {
       },
       animation: {
         "spin-slow": "spin 40s linear infinite",
+        "fade-in": "fadeIn 0.3s ease-in",
+        "fade-out": "fadeOut 3s ease-out",
+      },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        fadeOut: {
+          from: { opacity: "1" },
+          to: { opacity: "0" },
+        },
       },
     },
   },

@@ -1,55 +1,58 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/food-logo.png";
+import bgImage from "../../../assets/background.jpg"; // Kiểm tra lại đường dẫn
 const Login = () => {
   return (
-    <div className="flex h-screen items-center justify-center bg-muted mx-auto md:p-10 px-56">
-      <div className="w-max mb-20">
-        <div className="w-max flex items-center">
-          <div className="w-[180px] h-[180px] overflow-hidden flex items-center rounded-full shadow-lg border">
-            <img src={logo} alt="logo" />
+    <div
+      className="min-h-screen flex items-center justify-center bg-cover bg-center"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl shadow-lg rounded-3xl overflow-hidden bg-white bg-opacity-50 p-10">
+        {/* Logo + Giới thiệu */}
+        <div className="md:w-1/2 mb-10 md:mb-0 px-4">
+          <div className="flex items-center justify-center md:justify-start">
+            <div className="w-[150px] h-[150px] overflow-hidden rounded-full shadow-md border border-[#e0d2c1]">
+              <img
+                src={logo}
+                alt="logo"
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <p className="ml-6 text-6xl font-bold ">WOLSOM</p>
           </div>
-          <p className="ml-4 text-5xl font-bold">WOLSOM</p>
         </div>
-        <p className="w-3/4 mt-10 text-lg">
-        Wolsom là quán cà phê mang đến không gian thư giãn và lý tưởng, kết hợp với những tách cà phê đậm đà. Chúng tôi cam kết
-        mang lại trải nghiệm tuyệt vời, nơi bạn có thể tận hưởng những phút giây thư thái cùng bạn bè và người thân.
-        </p>
-      </div>
-      <form className="min-w-[500px] w-[500px] py-5 px-10">
-        <div className="flex flex-col space-y-4 shadow-2xl rounded-2xl border-2 border-gray-200 p-4">
-          <div className="mb-2">
+
+        {/* Form đăng nhập */}
+        <form className="w-full md:w-1/2 bg-[#fff9f3] p-8 rounded-2xl border border-[#ecdccf] shadow-inner">
+          <h2 className="text-2xl font-semibold mb-6 text-center">
+            Đăng nhập vào tài khoản
+          </h2>
+          <div className="space-y-4">
             <input
               type="text"
-              className="my-2 p-2 w-full border border-borderColor rounded-md outline-none focus:border-primary transition-all ease-out"
               placeholder="Email hoặc số điện thoại"
-              //   value={email}
-              //   onChange={({ target }) => setEmail(target.value)}
+              className="w-full p-3 border border-[#d4bfae] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c29669] transition"
             />
-          </div>
-          <div className="mb-2">
             <input
               type="password"
-              className="my-2 p-2 w-full border border-borderColor rounded-md outline-none focus:border-primary transition-all ease-out"
               placeholder="Mật khẩu"
-              //   value={password}
-              //   onChange={({ target }) => setPassword(target.value)}
+              className="w-full p-3 border border-[#d4bfae] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c29669] transition"
             />
-            {/* {error && <p className="text-xs text-red-600 mt-4">{error}</p>} */}
+            <button
+              type="submit"
+              className="w-full bg-[#c29669] text-white font-bold py-3 rounded-lg hover:bg-[#a9794c] transition shadow-md"
+            >
+              Đăng nhập
+            </button>
           </div>
-          <button
-            // onClick={handleSubmit}
-            className="p-2 w-full bg-blue-500 border rounded-lg text-lg text-white font-bold transition-all ease-linear hover:bg-blue-600 shadow-md cursor-pointer"
-          >
-            Đăng nhập
-          </button>
           <p className="mt-6 text-sm text-center">
             Bạn chưa có tài khoản?{" "}
-            <Link to="/signin" className="text-blue-500 mr-4">
+            <Link to="/signin" className="text-[#a35a2a] hover:underline">
               Đăng ký
             </Link>
           </p>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 };

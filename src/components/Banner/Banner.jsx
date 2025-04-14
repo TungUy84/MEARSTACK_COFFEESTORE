@@ -39,7 +39,7 @@ const Banner = () => {
                 <img
                   src={BiryaniImg} // Đường dẫn hình ảnh biryani.
                   alt="biryani img" // Thuộc tính alt cho hình ảnh.
-                  className="max-w-[430px] w-full mx-auto drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)]"
+                  className="max-w-[430px] w-full mx-auto drop-shadow-[-5px_5px_25px_rgba(0,0,0,0.4)] rounded-3xl" // Class này làm hình ảnh có độ rộng tối đa là 430px, căn giữa và có hiệu ứng bóng mờ.
                   // Class này làm hình ảnh có độ rộng tối đa là 430px, căn giữa và có hiệu ứng bóng mờ.
                 />
               </div>
@@ -79,7 +79,7 @@ const Banner = () => {
                 <div>
                   <Link
                     to="/product"
-                    className="w-[180px] flex items-center justify-center text-center px-4 py-2 rounded-3xl border transition-all hover:border-white-50 hover:bg-white hover:text-black">
+                    className="w-[180px] flex items-center justify-center text-center px-4 py-2 rounded-3xl border transition-all transform bg-gradient-to-r from-primary to-secondary text-white hover:border-white hover:bg-white hover:text-white hover:scale-105 duration-200">
                     <span className="text-md font-bold mr-1">Xem sản phẩm</span>
                     {/* Biểu tượng giỏ hàng */}
                     <FaCartShopping className="text-md ml-1 drop-shadow-sm cursor-pointer" />

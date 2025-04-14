@@ -47,12 +47,10 @@ const Testimonial = () => {
     <>
       <div data-aos="fade-up" data-aos-duration="300" className="py-10">
         <div className="container">
-          <div className="text-center mb-20 max-w-[400px] mx-auto">
-            <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-            Khách hàng của chúng tôi nói gì
-            </p>
-            <h1 className="text-3xl font-bold">Chứng Thực</h1>
-            <p className="text-xs text-gray-400">
+          <div className="text-center mb-10 max-w-[400px] mx-auto">
+            <h1 className="text-3xl mb-10 font-bold">Phản Hồi Khách Hàng</h1>
+            
+            <p className="text-2x1 max-w-[400px] text-gray-400 mx-aoto">
             "Tôi thực sự ấn tượng với chất lượng đồ uống và dịch vụ. Cà phê ngon, đóng gói cẩn thận, giao nhanh chóng. Tôi chắc chắn sẽ gọi lại nhiều lần!"
             </p>
           </div>

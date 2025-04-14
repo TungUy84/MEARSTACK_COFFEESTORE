@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import bgImage from "../../../assets/background.jpg";
 
-const Register = () => {
-  const phone = new URLSearchParams(window.location.search).get('phone');
-
+const Signin = () => {
   const [form, setForm] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
     agree: false,
   });
 
@@ -15,46 +15,38 @@ const Register = () => {
     const { name, value, type, checked } = e.target;
     setForm((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, password, confirmPassword, agree } = form;
 
-    if (!agree) return alert('Bạn cần đồng ý với điều khoản');
-    if (password !== confirmPassword) return alert('Mật khẩu không khớp');
+    if (!agree) {
+      alert("Bạn cần đồng ý với điều khoản");
+      return;
+    }
+    if (password !== confirmPassword) {
+      alert("Mật khẩu xác nhận không khớp");
+      return;
+    }
 
-    // Comment các dòng mã API đăng ký
-    // try {
-    //   const res = await fetch('/register', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ name, email, password, phone }),
-    //   });
-
-    //   const data = await res.json();
-
-    //   if (data.success) {
-    //     alert('Đăng ký thành công!');
-    //     window.location.href = '/login';
-    //   } else {
-    //     alert(`Đăng ký thất bại: ${data.message}`);
-    //   }
-    // } catch (err) {
-    //   alert(`Đăng ký thất bại: ${err.message}`);
-    // }
-
-    // Chuyển hướng đến trang chủ sau khi đăng ký
-    window.location.href = '/';
+    // Giả lập chuyển trang sau đăng ký thành công
+    window.location.href = "/login";
   };
 
   return (
-    <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh', backgroundColor: '#f9f9f9' }}>
-      <div className="form-container" style={{ width: '400px', padding: '20px', backgroundColor: 'white', borderRadius: '5px' }}>
-        <h1 style={{ textAlign: 'center', marginBottom: '20px', color: '#333' }}>Đăng ký tài khoản Wolsom</h1>
-        <form onSubmit={handleSubmit}>
+    <div
+      className="min-h-screen flex items-center justify-center bg-cover bg-center"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      <div className="w-full max-w-lg bg-white bg-opacity-50 p-8 rounded-2xl shadow-lg backdrop-blur-md">
+        <h1 className="text-3xl font-bold text-center mb-4">Đăng ký WOLSOM</h1>
+        <p className="text-center text-sm text-[#a35a2a] mb-6">
+          Trở thành Hội Viên Wolsom để nhận nhiều ưu đãi hấp dẫn!
+        </p>
+        <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
             name="name"
@@ -62,7 +54,7 @@ const Register = () => {
             value={form.name}
             onChange={handleChange}
             required
-            style={{ width: '100%', padding: '10px', marginBottom: '10px', border: '1px solid #ccc', borderRadius: '3px' }}
+            className="w-full p-3 border border-[#d4bfae] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c29669] transition"
           />
           <input
             type="email"
@@ -71,7 +63,7 @@ const Register = () => {
             value={form.email}
             onChange={handleChange}
             required
-            style={{ width: '100%', padding: '10px', marginBottom: '10px', border: '1px solid #ccc', borderRadius: '3px' }}
+            className="w-full p-3 border border-[#d4bfae] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c29669] transition"
           />
           <input
             type="password"
@@ -80,7 +72,7 @@ const Register = () => {
             value={form.password}
             onChange={handleChange}
             required
-            style={{ width: '100%', padding: '10px', marginBottom: '10px', border: '1px solid #ccc', borderRadius: '3px' }}
+            className="w-full p-3 border border-[#d4bfae] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c29669] transition"
           />
           <input
             type="password"
@@ -89,27 +81,35 @@ const Register = () => {
             value={form.confirmPassword}
             onChange={handleChange}
             required
-            style={{ width: '100%', padding: '10px', marginBottom: '10px', border: '1px solid #ccc', borderRadius: '3px' }}
+            className="w-full p-3 border border-[#d4bfae] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c29669] transition"
           />
-          <label style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+          <label className="flex items-center space-x-2 text-sm">
             <input
               type="checkbox"
               name="agree"
               checked={form.agree}
               onChange={handleChange}
               required
-              style={{ marginRight: '5px' }}
+              className="accent-[#c29669]"
             />
-            Tôi đồng ý
+            <span>Tôi đồng ý với các điều khoản và điều kiện</span>
           </label>
-          <p style={{ fontSize: '14px', color: '#3b82f6 ', marginBottom: '10px' }}>Đăng ký Hội Viên Wolsom sẽ được nhiều ưu đãi hơn.</p>
-          <button type="submit" style={{ width: '100%', padding: '10px', backgroundColor: '#3b82f6 ', color: 'white', border: 'none', borderRadius: '3px', cursor: 'pointer', fontWeight: 'bold' }}>
+          <button
+            type="submit"
+            className="w-full bg-[#c29669] text-white font-bold py-3 rounded-lg hover:bg-[#a9794c] transition shadow-md"
+          >
             Đăng ký ngay
           </button>
         </form>
+        <p className="mt-6 text-sm text-center">
+          Bạn đã có tài khoản?{" "}
+          <Link to="/login" className="text-[#a35a2a] hover:underline">
+            Đăng nhập
+          </Link>
+        </p>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default Signin;

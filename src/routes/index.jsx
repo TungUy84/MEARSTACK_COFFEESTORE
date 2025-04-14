@@ -6,7 +6,7 @@ import Product from "../pages/Product"
 import DetailProduct from "../pages/DetailProduct"
 import Login from "../pages/Auth/Login/Login"
 import Signin from "../pages/Auth/Signin/Signin"
-
+import Evaluate from "../pages/Evaluate"
 const privateRoute = [
  {path: "/", element: Home},
  {path:"/about", element: About},
@@ -16,7 +16,7 @@ const privateRoute = [
  {path:"/product/:id", element: DetailProduct},
  {path:"/login", element: Login, layout: null},
  {path:"/signin", element: Signin, layout: null},
-
+ {path:"/evaluate", element: Evaluate, layout: null},
 ]
 
 const publicRoute = {

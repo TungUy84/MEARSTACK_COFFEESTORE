@@ -1,7 +1,7 @@
 // Import React từ thư viện 'react'.
 import React from "react";
 // Import hình ảnh nền (background image) từ thư mục assets.
-import bgCoverImg from "../../assets/biryani_cover.jpg";
+import bgCoverImg from "../../assets/background.jpg";
 
 // Component CoverBanner hiển thị một banner với hình nền và tiêu đề.
 const CoverBanner = () => {
@@ -12,7 +12,7 @@ const CoverBanner = () => {
     backgroundRepeat: "no-repeat", // Hình nền sẽ không lặp lại.
     backgroundSize: "cover", // Hình nền sẽ phủ hết không gian của phần tử.
     // backgroundAttachment: "fixed", // Hình nền sẽ cố định khi cuộn trang (dòng này bị comment).
-    height: "200px", // Chiều cao của phần banner.
+    height: "400px", // Chiều cao của phần banner.
     width: "100%", // Chiều rộng chiếm toàn bộ chiều rộng của phần tử cha.
   };
 
