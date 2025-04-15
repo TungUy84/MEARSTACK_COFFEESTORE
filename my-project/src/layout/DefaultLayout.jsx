@@ -7,7 +7,7 @@ const DefaultLayout = ({ children }) => {
     <div>
       {/* Không render Navbar ở đây */}
       <main>{children}</main>
-      <Footer />
+     
     </div>
   );
 };

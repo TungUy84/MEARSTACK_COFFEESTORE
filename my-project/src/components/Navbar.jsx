@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaCog } from "react-icons/fa"; // Import icon răng cưa
 import Logo from "../assets/food-logo.png";
 
 const Navbar = () => {
@@ -18,56 +19,64 @@ const Navbar = () => {
           </span>
         </div>
 
-        {/* Navigation Links */}
-        <ul className="flex gap-8 text-lg font-medium">
-          <li>
-            <Link
-              to="/dashboard"
-              className="relative hover:text-[#7a4b27] transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#7a4b27] after:transition-all after:duration-300 hover:after:w-full"
-            >
-              Tổng Quan
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/customers"
-              className="relative hover:text-[#7a4b27] transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#7a4b27] after:transition-all after:duration-300 hover:after:w-full"
-            >
-              Khách Hàng
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/products"
-              className="relative hover:text-[#7a4b27] transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#7a4b27] after:transition-all after:duration-300 hover:after:w-full"
-            >
-              Sản Phẩm
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/reviews"
-              className="relative hover:text-[#7a4b27] transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#7a4b27] after:transition-all after:duration-300 hover:after:w-full"
-            >
-              Đánh Giá
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/settings"
-              className="relative hover:text-[#7a4b27] transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#7a4b27] after:transition-all after:duration-300 hover:after:w-full"
-            >
-              Cài Đặt
-            </Link>
-          </li>
-          <button>
-            <Link
-             to ="/login"
-             className="bg-[#3d1f00] text-white px-4 py-2 rounded-md hover:bg-[#7a4b27] transition">
-                Đăng Nhập 
-            </Link>
-          </button>
-        </ul>
+        {/* Login, Navigation Links, and Settings */}
+        <div className="flex items-center gap-8">
+          {/* Navigation Links */}
+          <ul className="flex gap-8 text-lg font-medium items-center">
+            <li>
+              <Link
+                to="/dashboard"
+                className="relative hover:text-[#7a4b27] transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#7a4b27] after:transition-all after:duration-300 hover:after:w-full"
+              >
+                Tổng Quan
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/customers"
+                className="relative hover:text-[#7a4b27] transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#7a4b27] after:transition-all after:duration-300 hover:after:w-full"
+              >
+                Khách Hàng
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/products"
+                className="relative hover:text-[#7a4b27] transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#7a4b27] after:transition-all after:duration-300 hover:after:w-full"
+              >
+                Sản Phẩm
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/reviews"
+                className="relative hover:text-[#7a4b27] transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#7a4b27] after:transition-all after:duration-300 hover:after:w-full"
+              >
+                Đánh Giá
+              </Link>
+            </li>
+          </ul>
+
+          {/* Login and Settings */}
+          <div className="flex items-center gap-4">
+            <button>
+              <Link
+                to="/login"
+                className="bg-[#3d1f00] text-white px-4 py-2 rounded-md hover:bg-[#7a4b27] transition"
+              >
+                Đăng Nhập
+              </Link>
+            </button>
+            <button>
+              <Link
+                to="/settings"
+                className="text-[#3d1f00] text-2xl hover:text-[#7a4b27] transition"
+              >
+                <FaCog />
+              </Link>
+            </button>
+          </div>
+        </div>
       </div>
     </nav>
   );

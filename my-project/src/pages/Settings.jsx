@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Settings = () => {
   const [userInfo, setUserInfo] = useState({
-    name: "Admin User",
-    email: "admin@example.com",
+    name: "",
+    email: "",
     password: "",
   });
 
   const [appSettings, setAppSettings] = useState({
-    theme: "light",
+    theme: "light", // Mặc định là giao diện sáng
     notifications: true,
   });
+
+  // Thay đổi lớp giao diện khi theme thay đổi
+  useEffect(() => {
+    if (appSettings.theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [appSettings.theme]);
 
   const handleUserInfoChange = (e) => {
     const { name, value } = e.target;
@@ -26,25 +35,25 @@ const Settings = () => {
   };
 
   const handleSaveSettings = () => {
-    alert("Settings saved successfully!");
+    alert("Cài đặt đã được lưu thành công!");
   };
 
   return (
-    <div className="bg-gray-100 p-6 min-h-screen">
+    <div className="bg-[#fdf8f0] dark:bg-gray-800 dark:text-white p-6 min-h-screen">
       {/* Tiêu đề */}
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Settings</h1>
+      <h1 className="text-3xl font-bold text-[#3d1f00] dark:text-white mb-6">Cài Đặt</h1>
 
       {/* Thông tin tài khoản */}
-      <div className="bg-white shadow-md rounded-lg p-4 mb-6">
-        <h2 className="text-xl font-semibold text-gray-700 mb-4">Account Information</h2>
+      <div className="bg-white dark:bg-gray-700 shadow-md rounded-lg p-4 mb-6 border border-[#3d1f00] dark:border-gray-600">
+        <h2 className="text-xl font-semibold text-[#3d1f00] dark:text-white mb-4">Thông Tin Tài Khoản</h2>
         <div className="space-y-4">
           <input
             type="text"
             name="name"
             value={userInfo.name}
             onChange={handleUserInfoChange}
-            placeholder="Full Name"
-            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Họ và Tên"
+            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#7a4b27] dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-300"
           />
           <input
             type="email"
@@ -52,41 +61,41 @@ const Settings = () => {
             value={userInfo.email}
             onChange={handleUserInfoChange}
             placeholder="Email"
-            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#7a4b27] dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-300"
           />
           <input
             type="password"
             name="password"
             value={userInfo.password}
             onChange={handleUserInfoChange}
-            placeholder="New Password"
-            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Mật Khẩu Mới"
+            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#7a4b27] dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-300"
           />
         </div>
       </div>
 
       {/* Cài đặt ứng dụng */}
-      <div className="bg-white shadow-md rounded-lg p-4 mb-6">
-        <h2 className="text-xl font-semibold text-gray-700 mb-4">App Settings</h2>
+      <div className="bg-white dark:bg-gray-700 shadow-md rounded-lg p-4 mb-6 border border-[#3d1f00] dark:border-gray-600">
+        <h2 className="text-xl font-semibold text-[#3d1f00] dark:text-white mb-4">Cài Đặt Ứng Dụng</h2>
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <label htmlFor="theme" className="text-gray-700 font-medium">
-              Theme
+            <label htmlFor="theme" className="text-[#3d1f00] dark:text-white font-medium">
+              Giao Diện
             </label>
             <select
               id="theme"
               name="theme"
               value={appSettings.theme}
               onChange={handleAppSettingsChange}
-              className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#7a4b27] dark:bg-gray-600 dark:border-gray-500"
             >
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
+              <option value="light">Sáng</option>
+              <option value="dark">Tối</option>
             </select>
           </div>
           <div className="flex items-center justify-between">
-            <label htmlFor="notifications" className="text-gray-700 font-medium">
-              Enable Notifications
+            <label htmlFor="notifications" className="text-[#3d1f00] dark:text-white font-medium">
+              Bật Thông Báo
             </label>
             <input
               type="checkbox"
@@ -103,9 +112,9 @@ const Settings = () => {
       {/* Nút lưu */}
       <button
         onClick={handleSaveSettings}
-        className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition"
+        className="bg-[#3d1f00] text-white px-6 py-2 rounded-md hover:bg-[#7a4b27] transition"
       >
-        Save Settings
+        Lưu Cài Đặt
       </button>
     </div>
   );
