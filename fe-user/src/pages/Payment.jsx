@@ -17,7 +17,7 @@ const Payment = () => {
     note: ''
   });
   
-  const [apiUrl] = useState(import.meta.env.VITE_API_URL || 'http://localhost:5000');
+  const [apiUrl] = useState(import.meta.env.VITE_API_URL);
   
   const getImageUrl = (url) => {
     if (!url) return '';
